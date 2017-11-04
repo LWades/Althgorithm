@@ -19,6 +19,7 @@ public class MergeSortDownToUp
     public static void sort(char[] src)
     {
         int n = src.length;
+        extra = new char[n];
 
         for (int size = 2; size / 2 < n; size *= 2)
         {
@@ -70,5 +71,4 @@ public class MergeSortDownToUp
 
         System.out.format("Sort result: %s", dstString);
     }
-
 }
