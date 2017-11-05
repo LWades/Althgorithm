@@ -8,13 +8,6 @@ public class MergeSort
     public static int numOfMerge = 0;
 
     /*
-     * 小数组阈值
-     * 小于等于k的数组会直接采用插入排序
-     * 大大减少递归深度，提高效率
-     */
-    private static int k = 2;
-
-    /*
      * 将归并排序所需要的额外数组设置为全局
      * 有利于
      */
@@ -54,25 +47,6 @@ public class MergeSort
     }
 
     /*
-     * 迭代版本
-     * 自底向上的归并排序版本
-     */
-    public static void sort2(char[] src)
-    {
-        int n = src.length;
-
-        for (int size = 2; size / 2 < n; size *= 2)
-        {
-            for (int i = 0; i < n; i += size)
-            {
-                int hi = Math.min(n - 1, i + size - 1);
-                int mid = Math.min(n - 1, i + size / 2 - 1);
-                merge(src, i, mid, hi);
-            }
-        }
-    }
-
-    /*
      * 归并排序的核心
      * 将src数组的[lo...mid]和[mid+1...hi]归并起来
      */
@@ -98,7 +72,6 @@ public class MergeSort
                 src[k] = extra[j++];
         }
     }
-
 
     public static void log(char[] src, int lo, int mid, int hi)
     {
